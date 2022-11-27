@@ -47,42 +47,42 @@
 
         if (name == "") {
             window.alert("Tên không được để trống");
-            name.focus();
+            document.getElementById("Name").focus();
             return false;
         }
 
         if (regName.test(name)) {
             window.alert("Tên không được chứa số hoặc ký tự đặc biệt");
-            name.focus();
+            document.getElementById("Name").focus();
             return false;
         }
 
         if (email == "") {
             window.alert("Email không được để trống");
-            email.focus();
+            document.getElementById("Email").focus();
             return false;
         }
         if (!regEmail.test(email)) {
             window.alert("Email không hợp lệ");
-            email.focus();
+            document.getElementById("Email").focus();
             return false;
         }
 
         if (email == "admin@gmail.com") {
             window.alert("Email đã tồn tại");
-            email.focus();
+            document.getElementById("Email").focus();
             return false;
         }
 
         if (password == "" || !regPassword.test(password)) {
             alert("Mật khẩu không hợp lệ");
-            password.focus();
+            document.getElementById("Password").focus();
             return false;
         }
 
         if (password.length < 6) {
             alert("Mật khẩu ít nhất 6 kí tự");
-            password.focus();
+            document.getElementById("Password").focus();
             return false;
         }
 
