@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 100%;
+            border: 100px solid black;
+            float: left;
+            align-content: center;
+            align-items: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">REGISTRATION FORM</h1>
+    <form name="RegForm" onsubmit="return checkRegister()" method="get" action="/">
+
+        <p>Name: <input type="text" size="65" name="Name" /></p>
+        <br />
+
+        <p>E-mail Address: <input type="text" size="65" name="EMail" /></p>
+        <br />
+
+        <p>Password: <input type="password" size="65" name="Password" /></p>
+        <br />
+
+        <p>
+            <input type="submit"  value="send" name="button" />
+            <input type="reset" value="Reset" name="Reset" />
+        </p>
+
+    </form>
+</body>
+
+<script>
+    function checkRegister() {
+        var name =
+            document.forms.RegForm.Name.value;
+        var email =
+            document.forms.RegForm.EMail.value;
+        var password =
+            document.forms.RegForm.Password.value;
+        var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+        var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; //Javascript reGex for Password Validation.
+        var regName = /\d+$/g;                                    // Javascript reGex for Name validation
+
+        if (name == "") {
+            window.alert("Tên không được để trống");
+            name.focus();
+            return false;
+        }
+
+        if (regName.test(name)) {
+            window.alert("Tên không được chứa số hoặc ký tự đặc biệt");
+            name.focus();
+            return false;
+        }
+
+        if (email == "") {
+            window.alert("Email không được để trống");
+            email.focus();
+            return false;
+        }
+        if (!regEmail.test(email)) {
+            window.alert("Email không hợp lệ");
+            email.focus();
+            return false;
+        }
+
+        if (email == "admin@gmail.com") {
+            window.alert("Email đã tồn tại");
+            email.focus();
+            return false;
+        }
+
+        if (password == "" || !regPassword.test(password)) {
+            alert("Mật khẩu không hợp lệ");
+            password.focus();
+            return false;
+        }
+
+        if (password.length < 6) {
+            alert("Mật khẩu ít nhất 6 kí tự");
+            password.focus();
+            return false;
+        }
+
+        alert("Đăng ký thành công");
+        return true;
+    }
+</script>
+
+</html>
