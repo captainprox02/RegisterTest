@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="Password">Password</label>
-            <input class="form-control" type="password" size="65" id="Password" name="Password" />
+            <input class="form-control" type="password" size="60" id="Password" name="Password" />
         </div>
 
         <div class="form-group mt-2">
@@ -36,11 +36,9 @@
 <script>
     function checkRegister() {
         var name = document.getElementById("Name").value;
+        var email =  document.getElementById("Email").value;
+        var password = document.getElementById("Password").value;
 
-        var email =
-            document.getElementById("Email").value;
-        var password =
-            document.getElementById("Password").value;
         var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
         var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; //Javascript reGex for Password Validation.
         var regName = /\d+$/g;                                    // Javascript reGex for Name validation
