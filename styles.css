@@ -1,10 +1,9 @@
-div {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    width: 100%;
-    border: 100px solid black;
-    float: left;
-    align-content: center;
-    align-items: center;
+    font-family: 'Nunito', sans-serif;
 }
 
 form {
