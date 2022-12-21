@@ -23,6 +23,10 @@
             <label for="Password">Password</label>
             <input class="form-control" type="password" size="60" id="Password" name="Password" />
         </div>
+        <div class="form-group">
+            <label for="Password">Re-Password</label>
+            <input class="form-control" type="password" size="60" id="RePassword" name="Password" />
+        </div>
 
         <div class="form-group mt-2">
             <input type="button" id="submit_btn" class="btn btn-primary" onclick="return checkRegister()" value="Submit" name="button" />
@@ -38,6 +42,8 @@
         var name = document.getElementById("Name").value;
         var email =  document.getElementById("Email").value;
         var password = document.getElementById("Password").value;
+        var rePassword = document.getElementById("RePassword").value;
+
 
         var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
         var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; //Javascript reGex for Password Validation.
@@ -72,10 +78,16 @@
             return false;
         }
 
-        if (password == "" || !regPassword.test(password)) {
+        if (password == "") {
             alert("Mật khẩu không hợp lệ");
             document.getElementById("Password").focus();
             return false;
+        }
+
+        if (rePassword !== password) {
+            alert("Mật khẩu nhập lại không hợp lệ");
+            document.getElementById("RePassword").focus();
+            
         }
 
         if (password.length < 6) {
